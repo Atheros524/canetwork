@@ -57,7 +57,7 @@ function initApp() {
                         { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow4.png", width: 3, height: 3 }
                     ]
                 },
-                size: { value: 15, random: { enable: true, minimumValue: 10 } },
+                size: { value: 3, random: { enable: true, minimumValue: 1 } },
                 move: { enable: true, speed: 2, direction: "none", random: true, straight: false, outModes: { default: "out" } },
                 opacity: { value: 0.9 }
             },
