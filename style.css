@@ -142,10 +142,10 @@ footer {
 }
 
 /* 🌟 PIXEL STRETCH FIX: Target the canvas inside the particles container */
+/* More specific and aggressive canvas targeting */
 #particles-js canvas {
-    /* Prevents blurring when scaling images, giving them a sharp, pixel-art look */
-    image-rendering: pixelated; 
-    image-rendering: -moz-crisp-edges; /* Firefox fallback */
+    image-rendering: pixelated !important; 
+    image-rendering: -moz-crisp-edges !important;
 }
 /* 🌟 END PIXEL STRETCH FIX */
 
