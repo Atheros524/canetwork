@@ -17,7 +17,7 @@ if (joinBtn) {
   });
 }
 
-// Particles.js setup
+// Particles.js with Minecraft block images
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 60 },
