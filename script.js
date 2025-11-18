@@ -1,13 +1,14 @@
-// Slideshow
+// ================= Slideshow =================
 let slides = document.querySelectorAll('.slideshow .slide');
 let current = 0;
+
 setInterval(() => {
   slides[current].classList.remove('active');
   current = (current + 1) % slides.length;
   slides[current].classList.add('active');
 }, 5000);
 
-// Join Us button copy with tooltip
+// ================= Join Us button =================
 const joinBtn = document.getElementById('joinBtn');
 if (joinBtn) {
   joinBtn.addEventListener('click', () => {
@@ -17,7 +18,7 @@ if (joinBtn) {
   });
 }
 
-// Particles.js with Minecraft block images
+// ================= Particles.js with Minecraft blocks =================
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 60 },
