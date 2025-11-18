@@ -18,27 +18,42 @@ if (joinBtn) {
   });
 }
 
-// ================= Particles.js with Minecraft blocks =================
-particlesJS("particles-js", {
-  "particles": {
-    "number": { "value": 60 },
-    "shape": {
-      "type": "image",
-      "image": [
-        { "src": "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/grass.png", "width": 32, "height": 32 },
-        { "src": "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/stone.png", "width": 32, "height": 32 },
-        { "src": "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/diamond.png", "width": 32, "height": 32 },
-        { "src": "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/gold.png", "width": 32, "height": 32 }
+// ================= Particles.js with Minecraft blocks (tsparticles) =================
+// Make sure you change the script in HTML to load tsparticles:
+// <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.10.1/tsparticles.min.js"></script>
+
+tsParticles.load("particles-js", {
+  particles: {
+    number: { value: 60, density: { enable: true, area: 800 } },
+    shape: {
+      type: "image",
+      image: [
+        { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/grass.png", width: 32, height: 32 },
+        { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/stone.png", width: 32, height: 32 },
+        { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/diamond.png", width: 32, height: 32 },
+        { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/gold.png", width: 32, height: 32 }
       ]
     },
-    "opacity": { "value": 0.9 },
-    "size": { "value": 15, "random": true },
-    "move": { "enable": true, "speed": 2, "direction": "none", "random": true }
+    size: { value: 15, random: { enable: true, minimumValue: 10 } },
+    move: {
+      enable: true,
+      speed: 2,
+      direction: "none",
+      random: true,
+      straight: false,
+      outModes: { default: "out" }
+    },
+    opacity: { value: 0.9 }
   },
-  "interactivity": {
-    "events": {
-      "onhover": { "enable": true, "mode": "repulse" },
-      "onclick": { "enable": true, "mode": "push" }
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "repulse" },
+      onClick: { enable: true, mode: "push" }
+    },
+    modes: {
+      repulse: { distance: 100, duration: 0.4 },
+      push: { quantity: 4 }
     }
-  }
+  },
+  detectRetina: true
 });
