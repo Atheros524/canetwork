@@ -1,4 +1,4 @@
-/* General Styles */
+/* ================= General Styles ================= */
 body, html {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ a {
   color: inherit;
 }
 
-/* Header Slideshow */
+/* ================= Header Slideshow ================= */
 header {
   position: relative;
   height: 100vh;
@@ -54,6 +54,7 @@ p {
   text-shadow: 0 0 10px #2196f3;
 }
 
+/* ================= Buttons ================= */
 .buttons button, .discord-btn, .button-cta, .button-back {
   padding: 15px 30px;
   margin: 10px;
@@ -74,13 +75,13 @@ p {
   color: #fff;
 }
 
-/* Main sections */
+/* ================= Main Sections ================= */
 .intro, .cta {
   padding: 80px 20px;
   text-align: center;
 }
 
-/* Servers grid */
+/* ================= Servers Grid ================= */
 .servers-grid {
   display: flex;
   justify-content: center;
@@ -109,7 +110,7 @@ p {
   margin-bottom: 15px;
 }
 
-/* Footer */
+/* ================= Footer ================= */
 footer {
   padding: 20px;
   text-align: center;
@@ -117,4 +118,20 @@ footer {
   font-family: 'Press Start 2P', cursive;
   letter-spacing: 1px;
   color: #ff5722;
+}
+
+/* ================= Particles Fix ================= */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;           /* behind all content */
+  pointer-events: none;  /* clicks pass through */
+}
+
+header, main, footer {
+  position: relative;
+  z-index: 1;           /* content above particles */
 }
