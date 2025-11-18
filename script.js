@@ -7,13 +7,17 @@ setInterval(() => {
   slides[current].classList.add('active');
 }, 5000);
 
-// Join Us button copy
-document.getElementById('joinBtn').addEventListener('click', () => {
-  navigator.clipboard.writeText('play.atheros524.ca');
-  alert('Server IP copied: play.atheros524.ca');
-});
+// Join Us button copy with tooltip
+const joinBtn = document.getElementById('joinBtn');
+if (joinBtn) {
+  joinBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('play.atheros524.ca');
+    joinBtn.textContent = 'Copied!';
+    setTimeout(() => { joinBtn.textContent = 'Join Us'; }, 2000);
+  });
+}
 
-// Particles.js
+// Particles.js setup
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 80 },
