@@ -1,7 +1,6 @@
 // ================= Slideshow =================
 let slides = document.querySelectorAll('.slideshow .slide');
 let current = 0;
-
 setInterval(() => {
   slides[current].classList.remove('active');
   current = (current + 1) % slides.length;
@@ -18,7 +17,7 @@ if (joinBtn) {
   });
 }
 
-// ================= Particles.js with Minecraft blocks (tsparticles) =================
+// ================= Particles with Minecraft blocks =================
 document.addEventListener("DOMContentLoaded", () => {
   tsParticles.load("particles-js", {
     particles: {
@@ -33,25 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ]
       },
       size: { value: 15, random: { enable: true, minimumValue: 10 } },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: "none",
-        random: true,
-        straight: false,
-        outModes: { default: "out" }
-      },
+      move: { enable: true, speed: 2, direction: "none", random: true, straight: false, outModes: { default: "out" } },
       opacity: { value: 0.9 }
     },
     interactivity: {
-      events: {
-        onHover: { enable: true, mode: "repulse" },
-        onClick: { enable: true, mode: "push" }
-      },
-      modes: {
-        repulse: { distance: 100, duration: 0.4 },
-        push: { quantity: 4 }
-      }
+      events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
+      modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
     },
     detectRetina: true
   });
