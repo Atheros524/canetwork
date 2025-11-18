@@ -39,6 +39,10 @@ header {
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
+  /* Add backdrop for readability over dynamic backgrounds */
+  padding: 20px; 
+  background: rgba(0, 0, 0, 0.4); 
+  border-radius: 10px;
 }
 
 h1 {
@@ -63,6 +67,12 @@ p {
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Ensure text is readable */
+  color: #fff; 
+}
+
+.buttons button {
+    background: #ff5722; /* Custom primary button color */
 }
 
 .buttons button:hover, .discord-btn:hover, .button-cta:hover, .button-back:hover {
@@ -72,7 +82,6 @@ p {
 
 .discord-btn {
   background: #7289da;
-  color: #fff;
 }
 
 /* ================= Main Sections ================= */
@@ -118,6 +127,7 @@ footer {
   font-family: 'Press Start 2P', cursive;
   letter-spacing: 1px;
   color: #ff5722;
+  font-size: 0.75rem; /* Slightly reduced font size for footer text */
 }
 
 /* ================= Particles Fix ================= */
@@ -127,11 +137,11 @@ footer {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 0;           /* behind all content */
+  z-index: 0;         /* behind all content */
   pointer-events: none;  /* clicks pass through */
 }
 
 header, main, footer {
   position: relative;
-  z-index: 1;           /* content above particles */
+  z-index: 1;         /* content above particles */
 }
