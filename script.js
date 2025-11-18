@@ -47,7 +47,7 @@ function initApp() {
     if (window.tsParticles) {
         tsParticles.load("particles-js", {
             particles: {
-                number: { value: 60, density: { enable: true, area: 800 } },
+                number: { value: 150, density: { enable: true, area: 800 } },
                 shape: {
                     type: "image",
                     image: [
