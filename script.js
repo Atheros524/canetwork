@@ -1,26 +1,27 @@
-// Replace with your server IP
-const serverIP = "play.yourserver.com";
+// Slideshow
+let slides = document.querySelectorAll('.slideshow .slide');
+let current = 0;
+setInterval(() => {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}, 5000);
 
-async function getServerStatus() {
-    const statusEl = document.getElementById("status");
-    const playersEl = document.getElementById("players");
+// Join Us button copy
+document.getElementById('joinBtn').addEventListener('click', () => {
+  navigator.clipboard.writeText('play.atheros524.ca');
+  alert('Server IP copied: play.atheros524.ca');
+});
 
-    try {
-        const res = await fetch(`https://api.mcsrvstat.us/2/${serverIP}`);
-        const data = await res.json();
-
-        if (data.online) {
-            statusEl.textContent = "Online ✅";
-            playersEl.textContent = `Players: ${data.players.online} / ${data.players.max}`;
-        } else {
-            statusEl.textContent = "Offline ❌";
-            playersEl.textContent = "";
-        }
-    } catch (err) {
-        statusEl.textContent = "Error fetching server status";
-        playersEl.textContent = "";
-        console.error(err);
-    }
-}
-
-getServerStatus();
+// Particles.js
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 80 },
+    "color": { "value": "#ffffff" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.7 },
+    "size": { "value": 4 },
+    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 2 }
+  }
+});
