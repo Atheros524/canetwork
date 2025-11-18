@@ -1,12 +1,18 @@
-/* General */
+/* General Styles */
 body, html {
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
   color: #fff;
   background: #0d0d0d;
-  overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header Slideshow */
 header {
   position: relative;
   height: 100vh;
@@ -19,8 +25,7 @@ header {
   height: 100vh;
   object-fit: cover;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -49,9 +54,9 @@ p {
   text-shadow: 0 0 10px #2196f3;
 }
 
-.buttons button, .discord-btn {
+.buttons button, .discord-btn, .button-cta, .button-back {
   padding: 15px 30px;
-  margin: 0 10px;
+  margin: 10px;
   font-weight: bold;
   border-radius: 8px;
   border: none;
@@ -59,7 +64,7 @@ p {
   transition: all 0.3s ease;
 }
 
-.buttons button:hover, .discord-btn:hover {
+.buttons button:hover, .discord-btn:hover, .button-cta:hover, .button-back:hover {
   transform: scale(1.1);
   box-shadow: 0 0 20px #ff5722;
 }
@@ -67,7 +72,41 @@ p {
 .discord-btn {
   background: #7289da;
   color: #fff;
-  text-decoration: none;
+}
+
+/* Main sections */
+.intro, .cta {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* Servers grid */
+.servers-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px 20px;
+  gap: 30px;
+}
+
+.server-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.server-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #ff5722;
+}
+
+.server-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 /* Footer */
