@@ -20,12 +20,24 @@ if (joinBtn) {
 // Particles.js setup
 particlesJS("particles-js", {
   "particles": {
-    "number": { "value": 80 },
-    "color": { "value": "#ffffff" },
-    "shape": { "type": "circle" },
-    "opacity": { "value": 0.7 },
-    "size": { "value": 4 },
-    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
-    "move": { "enable": true, "speed": 2 }
+    "number": { "value": 60 },
+    "shape": {
+      "type": "image",
+      "image": [
+        { "src": "assets/blocks/grass.png", "width": 32, "height": 32 },
+        { "src": "assets/blocks/stone.png", "width": 32, "height": 32 },
+        { "src": "assets/blocks/diamond.png", "width": 32, "height": 32 },
+        { "src": "assets/blocks/gold.png", "width": 32, "height": 32 }
+      ]
+    },
+    "opacity": { "value": 0.9 },
+    "size": { "value": 15, "random": true },
+    "move": { "enable": true, "speed": 2, "direction": "none", "random": true }
+  },
+  "interactivity": {
+    "events": {
+      "onhover": { "enable": true, "mode": "repulse" },
+      "onclick": { "enable": true, "mode": "push" }
+    }
   }
 });
