@@ -3,6 +3,7 @@
 function initApp() {
     
     // ================= Slideshow =================
+    // ... (slideshow logic remains the same)
     let slides = document.querySelectorAll('.slideshow .slide');
     let current = 0;
     
@@ -19,6 +20,7 @@ function initApp() {
     }
 
     // ================= Join Us button =================
+    // ... (join button logic remains the same)
     const joinBtn = document.getElementById('joinBtn');
     
     if (joinBtn) {
@@ -63,7 +65,7 @@ function initApp() {
                 events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
                 modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
             },
-            detectRetina: true
+            detectRetina: false // <--- THIS IS THE KEY CHANGE
         });
     } else {
         console.warn("tsParticles library is not loaded. Particle animation skipped.");
