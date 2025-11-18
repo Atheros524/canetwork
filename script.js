@@ -1,12 +1,16 @@
 // script.js (FINAL FIX)
 
 function initApp() {
+    
     // ================= Slideshow =================
     let slides = document.querySelectorAll('.slideshow .slide');
     let current = 0;
     
     // Only run if slides are found
     if (slides.length > 1) {
+        // Ensure the first slide is visible initially if no CSS sets it
+        slides[current].classList.add('active'); 
+        
         setInterval(() => {
             slides[current].classList.remove('active');
             current = (current + 1) % slides.length;
@@ -37,53 +41,36 @@ function initApp() {
     }
 
     // ================= Particles with Minecraft blocks =================
-    // This code only runs AFTER the DOM is loaded AND the function is called
-    tsParticles.load("particles-js", {
-        particles: {
-            number: { value: 60, density: { enable: true, area: 800 } },
-            shape: {
-                type: "image",
-                image: [
-                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow1.png", width: 1, height: 1 },
-                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow2.png", width: 3, height: 3 },
-                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow3.png", width: 3, height: 3 },
-                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow4.png", width: 3, height: 3 }
-                ]
+    // Only attempt to load tsParticles if the library is available
+    if (window.tsParticles) {
+        tsParticles.load("particles-js", {
+            particles: {
+                number: { value: 60, density: { enable: true, area: 800 } },
+                shape: {
+                    type: "image",
+                    image: [
+                        { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow1.png", width: 1, height: 1 },
+                        { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow2.png", width: 3, height: 3 },
+                        { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow3.png", width: 3, height: 3 },
+                        { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow4.png", width: 3, height: 3 }
+                    ]
+                },
+                size: { value: 15, random: { enable: true, minimumValue: 10 } },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, outModes: { default: "out" } },
+                opacity: { value: 0.9 }
             },
-            size: { value: 15, random: { enable: true, minimumValue: 10 } },
-            move: { enable: true, speed: 2, direction: "none", random: true, straight: false, outModes: { default: "out" } },
-            opacity: { value: 0.9 }
-        },
-        interactivity: {
-            events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
-            modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
-        },
-        detectRetina: true
-    });
+            interactivity: {
+                events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
+            },
+            detectRetina: true
+        });
+    } else {
+        console.warn("tsParticles library is not loaded. Particle animation skipped.");
+    }
 }
 
 // ----------------------------------------------------------------------
-// Check if the library is loaded, and then run the rest of the application
+// Run the application logic once the entire HTML document is ready
 // ----------------------------------------------------------------------
-if (window.tsParticles) {
-    // If tsParticles is immediately available (normal load)
-    document.addEventListener("DOMContentLoaded", initApp);
-} else {
-    // Fallback: If the library is still loading, wait for the DOM
-    document.addEventListener("DOMContentLoaded", () => {
-        // Now that the DOM is loaded, check for the library again (this should be the fix)
-        if (window.tsParticles) {
-            initApp();
-        } else {
-            // Last resort: Add a very short delay to wait for definition
-            setTimeout(() => {
-                if (window.tsParticles) {
-                     initApp();
-                } else {
-                    console.error("tsParticles is STILL not defined after waiting.");
-                    // You might consider alerting the user or loading a fallback here.
-                }
-            }, 100);
-        }
-    });
-}
+document.addEventListener("DOMContentLoaded", initApp);
