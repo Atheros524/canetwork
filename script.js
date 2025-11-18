@@ -25,7 +25,7 @@ function initApp() {
     
     if (joinBtn) {
         joinBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText('play.atheros524.ca')
+            navigator.clipboard.writeText('food-yang.gl.joinmc.link')
                 .then(() => {
                     joinBtn.textContent = 'Copied!';
                     setTimeout(() => { 
