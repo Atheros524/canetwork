@@ -1,11 +1,6 @@
-// script.js
+// script.js (FINAL FIX)
 
-// By wrapping ALL code in DOMContentLoaded, we ensure:
-// 1. The HTML elements are ready (for Slideshow and Join button)
-// 2. The tsParticles library is fully loaded and defined (for tsParticles.load)
-
-document.addEventListener("DOMContentLoaded", () => {
-    
+function initApp() {
     // ================= Slideshow =================
     let slides = document.querySelectorAll('.slideshow .slide');
     let current = 0;
@@ -24,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (joinBtn) {
         joinBtn.addEventListener('click', () => {
-            // Note: The clipboard API requires the site to be served over HTTPS
-            // or running locally for security reasons.
             navigator.clipboard.writeText('play.atheros524.ca')
                 .then(() => {
                     joinBtn.textContent = 'Copied!';
@@ -44,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ================= Particles with Minecraft blocks =================
+    // This code only runs AFTER the DOM is loaded AND the function is called
     tsParticles.load("particles-js", {
         particles: {
             number: { value: 60, density: { enable: true, area: 800 } },
@@ -66,4 +60,30 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         detectRetina: true
     });
-});
+}
+
+// ----------------------------------------------------------------------
+// Check if the library is loaded, and then run the rest of the application
+// ----------------------------------------------------------------------
+if (window.tsParticles) {
+    // If tsParticles is immediately available (normal load)
+    document.addEventListener("DOMContentLoaded", initApp);
+} else {
+    // Fallback: If the library is still loading, wait for the DOM
+    document.addEventListener("DOMContentLoaded", () => {
+        // Now that the DOM is loaded, check for the library again (this should be the fix)
+        if (window.tsParticles) {
+            initApp();
+        } else {
+            // Last resort: Add a very short delay to wait for definition
+            setTimeout(() => {
+                if (window.tsParticles) {
+                     initApp();
+                } else {
+                    console.error("tsParticles is STILL not defined after waiting.");
+                    // You might consider alerting the user or loading a fallback here.
+                }
+            }, 100);
+        }
+    });
+}
