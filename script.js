@@ -24,10 +24,10 @@ particlesJS("particles-js", {
     "shape": {
       "type": "image",
       "image": [
-        { "src": "assets/blocks/grass.png", "width": 32, "height": 32 },
-        { "src": "assets/blocks/stone.png", "width": 32, "height": 32 },
-        { "src": "assets/blocks/diamond.png", "width": 32, "height": 32 },
-        { "src": "assets/blocks/gold.png", "width": 32, "height": 32 }
+        { "src": "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/grass.png", "width": 32, "height": 32 },
+        { "src": "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/stone.png", "width": 32, "height": 32 },
+        { "src": "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/diamond.png", "width": 32, "height": 32 },
+        { "src": "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/gold.png", "width": 32, "height": 32 }
       ]
     },
     "opacity": { "value": 0.9 },
