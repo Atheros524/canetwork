@@ -44,10 +44,10 @@ function initApp() {
             shape: {
                 type: "image",
                 image: [
-                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/grass.png", width: 32, height: 32 },
-                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/stone.png", width: 32, height: 32 },
-                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/diamond.png", width: 32, height: 32 },
-                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/gold.png", width: 32, height: 32 }
+                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow1.png", width: 1, height: 1 },
+                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow2.png", width: 3, height: 3 },
+                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow3.png", width: 3, height: 3 },
+                    { src: "https://raw.githubusercontent.com/Atheros524/canetwork/main/assets/blocks/snow4.png", width: 3, height: 3 }
                 ]
             },
             size: { value: 15, random: { enable: true, minimumValue: 10 } },
